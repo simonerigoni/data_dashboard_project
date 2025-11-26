@@ -22,6 +22,7 @@ I have decided to build a finance data dashboard using the data from [quandl](ht
 ## Software and Libraries
 
 This project uses Python 3.11 and the following libraries:
+
 * [NumPy](https://www.numpy.org/)
 * [dash](https://plot.ly/dash/)
 * [django](https://www.djangoproject.com/)
@@ -32,6 +33,7 @@ This project uses Python 3.11 and the following libraries:
 ## Local configuration
 
 To setup a new local enviroment and install all dependencies you can run `.\my_scripts\Set-Up.ps1`. It will install:
+
 * [Python](https://www.python.org/)
 * [uv](https://docs.astral.sh/uv/)
 * [Pre-commit](https://pre-commit.com/)
