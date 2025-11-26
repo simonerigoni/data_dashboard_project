@@ -9,10 +9,6 @@ repos:
       - id: ruff
         args: [ --fix ]
       - id: ruff-format
-  - repo: https://github.com/RobertCraigie/pyright-python
-    rev: v1.1.407
-    hooks:
-      - id: pyright
   - repo: local
     hooks:
       - id: pytest
