@@ -3,6 +3,7 @@
 ## Introduction
 
 This project is part of The [Udacity](https://eu.udacity.com/) Data Scientist Nanodegree Program which is composed by:
+
 * Term 1
     * Supervised Learning
     * Deep Learning
@@ -13,6 +14,7 @@ This project is part of The [Udacity](https://eu.udacity.com/) Data Scientist Na
     * Recommendation Engines
     
 The goal of this project is to develop and deploy a data dashboard to put in practice the concepts explained in the lessons:
+
 1. Wrangling your chosen data set to get the data in the format you want
 2. Writing Python code to read in the data set and set up Plotly plots
 3. Tweaking HTML so that the website has the design and information that you want
@@ -21,7 +23,7 @@ I have decided to build a finance data dashboard using the data from [quandl](ht
 
 ## Software and Libraries
 
-This project uses Python 3.11 and the following libraries:
+This project uses Python 3.11 and the most important packages are:
 
 * [NumPy](https://www.numpy.org/)
 * [dash](https://plot.ly/dash/)
