@@ -1,12 +1,20 @@
-# To do list 
+# Portfolio Exercise: Deploy a Data Dashboard
 
-## New ideas
+## TODO
 
+Overview of the status of the tasks of this project.
 
-## To Do
+## Tasks
 
+### To do
 
-## In Progress
+- [ ] Add tests
 
+### In Progress
 
-## Done ✓
+- [ ] None
+
+### Done ✓
+
+- [x] Project initialization
+- [x] Use uv and pre-commit

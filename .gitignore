@@ -1,20 +1,23 @@
-# Ignore the python compiled files
+# Files, directories or patterns that should be excluded from Git tracking
 
+# Temp stuff
+temp/
+
+# Python compiled files
 *.pyc
 
-# Ignore the venv directories and configuration
+# Virtual enviroment
+.venv/
 
-Include/
-Lib/
-Scripts/
-pyvenv.cfg
+# Pytest cache
+.pytest_cache/
 
-# Ignore plotly directories
+# Ruff cache
+.ruff_cache/
 
-etc/
-share/
+# uv stuff
+.python-version
+uv.lock
 
-# Ignore the configuration script
-
-configuration.py
-
+# Local settings
+.env
