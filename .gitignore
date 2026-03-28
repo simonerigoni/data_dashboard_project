@@ -15,9 +15,8 @@ temp/
 # Ruff cache
 .ruff_cache/
 
-# uv stuff
-.python-version
-uv.lock
-
 # Local settings
 .env
+
+# pytest-cov stuff
+.coverage
