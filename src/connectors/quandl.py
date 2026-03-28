@@ -8,14 +8,18 @@ import pandas as pd
 
 
 class QuandlConnector:
-    def __init__(self, api_key: str):
+    def __init__(self, api_key: str | None):
         """Initialize the Quandl connector.
 
         Args:
-            api_key (str): API token for authentication
+            api_key (str | None): API token for authentication
         """
+        if not api_key:
+            raise ValueError("Error: API key is required for QuandlConnector")
+        else:
+            pass
         self.api_key = api_key
-        quandl.ApiConfig.api_key = self.api_key
+        quandl.ApiConfig.api_key = self.api_key  # type: ignore
 
     def get(self, ticker, start_date, end_date) -> pd.DataFrame:
         """Get.
@@ -25,9 +29,7 @@ class QuandlConnector:
         Returns:
             pd.DataFrame: data
         """
-        return pd.DataFrame(
-            quandl.get("WIKI/" + ticker, start_date=start_date, end_date=end_date)
-        )
+        return pd.DataFrame(quandl.get("WIKI/" + ticker, start_date=start_date, end_date=end_date))
 
     def get_table(self, ticker, qopts) -> pd.DataFrame:
         """Get table.

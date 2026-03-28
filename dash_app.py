@@ -8,6 +8,7 @@ import colorlover as cl
 import datetime as dt
 import numpy as np
 import pandas as pd
+from typing import cast
 
 
 from src.config import (
@@ -112,20 +113,14 @@ def _create_app(ticker_filename=TICKER_FILENAME, indicator_filename=INDICATOR_FI
                 [
                     dash.html.Div(
                         [
-                            dash.html.H1(
-                                "Quandle Finance Explorer", className="text-center"
-                            ),
-                            dash.html.H4(
-                                "Data available only to {}".format(data_end_time.date())
-                            ),
+                            dash.html.H1("Quandle Finance Explorer", className="text-center"),
+                            dash.html.H4("Data available only to {}".format(data_end_time.date())),
                             dash.html.H3("Compare Stocks"),
                             dash.dcc.Dropdown(
                                 id="dropdown-stock-tickers",
                                 options=[
                                     {"label": s[0], "value": s[1]}
-                                    for s in zip(
-                                        df_ticker.Company_Name, df_ticker.Ticker
-                                    )
+                                    for s in zip(df_ticker.Company_Name, df_ticker.Ticker)
                                 ],
                                 value=DEFAULT_TICKERS,
                                 multi=True,
@@ -133,9 +128,7 @@ def _create_app(ticker_filename=TICKER_FILENAME, indicator_filename=INDICATOR_FI
                             dash.html.H3("Timescale"),
                             dash.dcc.RadioItems(
                                 id="radioitems-timescale",
-                                options=[
-                                    {"label": t, "value": t} for t in time_dictionary
-                                ],
+                                options=[{"label": t, "value": t} for t in time_dictionary],
                                 value="1Y",
                             ),
                             dash.html.H3("Bollinger bands parameters"),
@@ -163,7 +156,7 @@ def _create_app(ticker_filename=TICKER_FILENAME, indicator_filename=INDICATOR_FI
                             dash.dcc.Dropdown(
                                 id="dropdown-years",
                                 options=[
-                                    {"label": year, "value": year} for year in list_year
+                                    {"label": str(year), "value": str(year)} for year in list_year
                                 ],
                                 value=[
                                     str(data_end_time.date().year),
@@ -176,9 +169,7 @@ def _create_app(ticker_filename=TICKER_FILENAME, indicator_filename=INDICATOR_FI
                                 id="dropdown-indicators",
                                 options=[
                                     {"label": s[0], "value": s[1]}
-                                    for s in zip(
-                                        df_indicator.Name, df_indicator.Column_Code
-                                    )
+                                    for s in zip(df_indicator.Name, df_indicator.Column_Code)
                                 ],
                                 value=DEFAULT_INDICATORS,
                                 multi=True,
@@ -224,9 +215,7 @@ def _create_app(ticker_filename=TICKER_FILENAME, indicator_filename=INDICATOR_FI
         Returns:
             graphs (list): list of graphs
         """
-        data_start_time = (
-            data_end_time - dt.timedelta(days=time_dictionary[timescale])
-        ).date()
+        data_start_time = (data_end_time - dt.timedelta(days=time_dictionary[timescale])).date()
         enable_bollinger_bands = (
             True
             if len(enable_bollinger_bands) > 0 and enable_bollinger_bands[0] == "enable"
@@ -256,6 +245,7 @@ def _create_app(ticker_filename=TICKER_FILENAME, indicator_filename=INDICATOR_FI
                 "decreasing": {"line": {"color": colorscale[1]}},
             }
 
+            bollinger_traces = []
             if enable_bollinger_bands is True:
                 bb_bands = bollinger_bands(
                     df.Close, window_size_bollinger_bands, num_of_std_bollinger_bands
@@ -327,6 +317,7 @@ def _create_app(ticker_filename=TICKER_FILENAME, indicator_filename=INDICATOR_FI
                     "per_cal_year",
                 ] + indicators
                 df = quandl_connector.get_table(ticker, {"columns": colonne})
+                df = pd.DataFrame(df)
                 # cd ..print(df)
             except Exception:
                 tables.append(dash.html.H5("Data is not available"))
@@ -337,7 +328,9 @@ def _create_app(ticker_filename=TICKER_FILENAME, indicator_filename=INDICATOR_FI
                 continue
 
             df = df[df["per_type"] == "A"]
+            df = cast(pd.DataFrame, df)
             df = df[["per_cal_year"] + indicators]
+            df = cast(pd.DataFrame, df)
             anni = df["per_cal_year"].to_list()
             # print(anni)
             df = df.set_index("per_cal_year")
