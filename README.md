@@ -23,7 +23,7 @@ I have decided to build a finance data dashboard using the data from [quandl](ht
 
 ## Software and Libraries
 
-This project uses Python 3.11 and the most important packages are:
+This project uses Python 3.14 and the most important packages are:
 
 * [NumPy](https://www.numpy.org/)
 * [dash](https://plot.ly/dash/)
