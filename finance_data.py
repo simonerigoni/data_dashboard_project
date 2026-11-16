@@ -8,7 +8,6 @@ import datetime as dt
 from src.config import QUANDL_API_KEY
 from src.connectors.quandl import QuandlConnector
 
-
 if __name__ == "__main__":
     print("Finance data")
     quandl_connector = QuandlConnector(QUANDL_API_KEY)

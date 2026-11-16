@@ -3,8 +3,8 @@
 # python -m src.connectors.quandl
 
 
-import quandl
 import pandas as pd
+import quandl
 
 
 class QuandlConnector:

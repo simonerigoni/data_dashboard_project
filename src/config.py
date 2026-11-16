@@ -5,7 +5,6 @@
 
 import os
 
-
 PROJECT_NAME = "data_dashboard_project"
 DATA_FOLDER = "data/"
 
@@ -15,6 +14,7 @@ def _load_local_settings():
     Load the local settings
     """
     import json
+
     from dotenv import load_dotenv
 
     current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -24,7 +24,7 @@ def _load_local_settings():
     if os.path.isfile(env_path):
         load_dotenv()
     elif os.path.isfile(local_settings_json_path):
-        with open(local_settings_json_path, "r") as f:
+        with open(local_settings_json_path) as f:
             settings = json.load(f)
         for key, value in settings["Values"].items():
             os.environ[key] = str(value)

@@ -2,24 +2,24 @@
 #
 # python dash_app.py
 
-import dash
-import dash_bootstrap_components as dbc
-import colorlover as cl
 import datetime as dt
-import numpy as np
-import pandas as pd
 from typing import cast
 
+import colorlover as cl
+import dash
+import dash_bootstrap_components as dbc
+import numpy as np
+import pandas as pd
 
 from src.config import (
+    DEFAULT_AVAILABLE_YEARS,
+    DEFAULT_INDICATORS,
+    DEFAULT_NUM_OF_STD_BOLLINGER_BANDS,
+    DEFAULT_TICKERS,
+    DEFAULT_WINDOW_SIZE_BOLLINGER_BANDS,
+    INDICATOR_FILENAME,
     QUANDL_API_KEY,
     TICKER_FILENAME,
-    INDICATOR_FILENAME,
-    DEFAULT_WINDOW_SIZE_BOLLINGER_BANDS,
-    DEFAULT_NUM_OF_STD_BOLLINGER_BANDS,
-    DEFAULT_AVAILABLE_YEARS,
-    DEFAULT_TICKERS,
-    DEFAULT_INDICATORS,
 )
 from src.connectors.quandl import QuandlConnector
 
@@ -114,13 +114,15 @@ def _create_app(ticker_filename=TICKER_FILENAME, indicator_filename=INDICATOR_FI
                     dash.html.Div(
                         [
                             dash.html.H1("Quandle Finance Explorer", className="text-center"),
-                            dash.html.H4("Data available only to {}".format(data_end_time.date())),
+                            dash.html.H4(f"Data available only to {data_end_time.date()}"),
                             dash.html.H3("Compare Stocks"),
                             dash.dcc.Dropdown(
                                 id="dropdown-stock-tickers",
                                 options=[
                                     {"label": s[0], "value": s[1]}
-                                    for s in zip(df_ticker.Company_Name, df_ticker.Ticker)
+                                    for s in zip(
+                                        df_ticker.Company_Name, df_ticker.Ticker, strict=False
+                                    )
                                 ],
                                 value=DEFAULT_TICKERS,
                                 multi=True,
@@ -169,7 +171,9 @@ def _create_app(ticker_filename=TICKER_FILENAME, indicator_filename=INDICATOR_FI
                                 id="dropdown-indicators",
                                 options=[
                                     {"label": s[0], "value": s[1]}
-                                    for s in zip(df_indicator.Name, df_indicator.Column_Code)
+                                    for s in zip(
+                                        df_indicator.Name, df_indicator.Column_Code, strict=False
+                                    )
                                 ],
                                 value=DEFAULT_INDICATORS,
                                 multi=True,
@@ -264,7 +268,7 @@ def _create_app(ticker_filename=TICKER_FILENAME, indicator_filename=INDICATOR_FI
                         "hoverinfo": "none",
                         "legendgroup": ticker,
                         "showlegend": True if i == 0 else False,
-                        "name": "{} - bollinger bands".format(ticker),
+                        "name": f"{ticker} - bollinger bands",
                     }
                     for i, y in enumerate(bb_bands)
                 ]
@@ -307,7 +311,7 @@ def _create_app(ticker_filename=TICKER_FILENAME, indicator_filename=INDICATOR_FI
             tables (list): list of tables
         """
         tables = []
-        for i, ticker in enumerate(stock_tickers):
+        for ticker in stock_tickers:
             tables.append(dash.html.H4(ticker))
             try:
                 colonne = [
