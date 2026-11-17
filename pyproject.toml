@@ -18,7 +18,6 @@ dependencies = [
 
 
 [project.urls]
-Homepage = "https://github.com/simonerigoni/data_dashboard_project"
 Repository = "https://github.com/simonerigoni/data_dashboard_project"
 
 [dependency-groups]
