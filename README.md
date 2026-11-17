@@ -1,6 +1,6 @@
 # Portfolio Exercise: Deploy a Data Dashboard
 
-[![CI](https://github.com/simonerigoni/data_dashboard_project/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/simonerigoni/data_dashboard_project/actions/workflows/ci.yml?query=branch%3Amain) [![License](https://img.shields.io/github/license/simonerigoni/data_dashboard_project)](LICENSE.md) [![Python](https://img.shields.io/badge/python-3.14-blue)](pyproject.toml) [![uv](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json)](https://github.com/astral-sh/uv) [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit)](https://github.com/pre-commit/pre-commit) [![Renovate](https://img.shields.io/badge/renovate-enabled-brightgreen?logo=renovatebot)](https://renovatebot.com)
+[![CI](https://github.com/simonerigoni/data_dashboard_project/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/simonerigoni/data_dashboard_project/actions/workflows/ci.yml?query=branch%3Amain) [![License](https://img.shields.io/github/license/simonerigoni/data_dashboard_project)](LICENSE.md) [![Python](https://img.shields.io/badge/python-3.15-blue)](pyproject.toml) [![uv](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json)](https://github.com/astral-sh/uv) [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit)](https://github.com/pre-commit/pre-commit) [![Renovate](https://img.shields.io/badge/renovate-enabled-brightgreen?logo=renovatebot)](https://renovatebot.com)
 
 ## Introduction
 
@@ -25,7 +25,7 @@ I have decided to build a finance data dashboard using the data from [quandl](ht
 
 ## Software and Libraries
 
-This project uses Python 3.14 and the most important packages are:
+This project uses Python 3.15 and the most important packages are:
 
 * [NumPy](https://www.numpy.org/)
 * [dash](https://plot.ly/dash/)
