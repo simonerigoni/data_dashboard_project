@@ -4,7 +4,7 @@
 
 ## Introduction
 
-This project is part of The [Udacity](https://eu.udacity.com/) Data Scientist Nanodegree Program which is composed by:
+This project is part of The [Udacity](https://www.udacity.com/) Data Scientist Nanodegree Program which is composed by:
 
 * Term 1
     * Supervised Learning
@@ -102,7 +102,7 @@ In the [TODO.md](TODO.md) file you can find the list of tasks and ongoing activi
 
 ## Licensing and Acknowledgements
 
-Have a look at [LICENSE.md](LICENSE.md) and many thanks to [Quandl](https://www.quandl.com/) for the datasets and more information about the licensing of the data can be find [here](https://www.quandl.com/databases/WIKIP/documentation). Also thanks to [justdjango](https://github.com/justdjango/My_Dashboard/blob/master/finance/as_dash.py) for inspiring this project.
+Have a look at [LICENSE.md](LICENSE.md) and many thanks to [Quandl](https://www.quandl.com/) for the datasets and more information about the licensing of the data can be find [here](https://web.archive.org/web/20210616164728/https://www.quandl.com/databases/WIKIP/documentation). Also thanks to [justdjango](https://github.com/justdjango/My_Dashboard/blob/master/finance/as_dash.py) for inspiring this project.
 
 ## Outro
 
